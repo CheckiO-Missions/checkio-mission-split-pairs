@@ -1,16 +1,16 @@
-def sum_two(a, b):
-    """
-        sums two passed arguments
-    """
+def split_pairs(a):
     # your code here
     return None
 
 
 if __name__ == '__main__':
     print("Example:")
-    print(sum_two(3, 2))
-    
+    print(split_pairs('abcd'))
+
     # These "asserts" are used for self-checking and not for an auto-testing
-    assert sum_two(3, 2) == 5, "First"
-    assert sum_two(5, 7) == 12, "Second"
+    assert split_pairs('abcd') == ['ab', 'cd']
+    assert split_pairs('abc') == ['ab', 'c_']
+    assert split_pairs('abcdf') == ['ab', 'cd', 'f_']
+    assert split_pairs('a') == ['a_']
+    assert split_pairs('') == ['__']
     print("Coding complete? Click 'Check' to earn cool rewards!")

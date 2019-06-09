@@ -33,6 +33,13 @@ from checkio.referees import cover_codes
 
 from tests import TESTS
 
+py_cover = '''
+
+def cover(func, in_data):
+    return list(func(*in_data))
+
+'''
+
 api.add_listener(
     ON_CONNECT,
     CheckiOReferee(
@@ -42,7 +49,7 @@ api.add_listener(
             "js": "splitPairs"
         },
         cover_code={
-            'python-3': cover_codes.unwrap_args,
+            'python-3': py_cover,
             'js-node': cover_codes.js_unwrap_args
         }
     ).on_ready)

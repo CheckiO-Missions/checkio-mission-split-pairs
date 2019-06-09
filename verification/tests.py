@@ -38,7 +38,7 @@ TESTS = {
         },
         {
             "input": ["hhh"],
-            "answer": ["hh", "h"]
+            "answer": ["hh", "h_"]
         },
         {
             "input": ["hhh1"],

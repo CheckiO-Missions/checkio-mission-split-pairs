@@ -16,7 +16,7 @@ if (!global.is_checking) {
     assert.deepEqual(splitPairs('abc'), ['ab', 'c_']);
     assert.deepEqual(splitPairs('abcdf'), ['ab', 'cd', 'f_']);
     assert.deepEqual(splitPairs('a'), ['a_']);
-    assert.deepEqual(splitPairs(''), ['__']);
+    assert.deepEqual(splitPairs(''), []);
 
     console.log("Coding complete? Click 'Check' to earn cool rewards!");
 }}

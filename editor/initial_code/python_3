@@ -12,5 +12,5 @@ if __name__ == '__main__':
     assert list(split_pairs('abc')) == ['ab', 'c_']
     assert list(split_pairs('abcdf')) == ['ab', 'cd', 'f_']
     assert list(split_pairs('a')) == ['a_']
-    assert list(split_pairs('')) == ['__']
+    assert list(split_pairs('')) == []
     print("Coding complete? Click 'Check' to earn cool rewards!")

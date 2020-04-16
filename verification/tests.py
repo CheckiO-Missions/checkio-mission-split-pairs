@@ -23,7 +23,7 @@ TESTS = {
             "answer": ["ab", "cd", "f_"]
         },
         {
-            "input": ["a"],
+            "input": ["a"].
             "answer": ["a_"]
         },
         {

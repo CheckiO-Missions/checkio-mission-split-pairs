@@ -23,6 +23,9 @@
 {% if interpreter.slug == "js-node" %}
 <pre class="brush: javascript">splitPairs('abcd') == ['ab', 'cd']
 splitPairs('abc') == ['ab', 'c_']
+splitPairs('abcdf') == ['ab', 'cd', 'f_']
+splitPairs('a') == ['a_']
+splitPairs('') == []
 </pre>
 {% else %}
 <pre class="brush: python">split_pairs('abcd') == ['ab', 'cd']

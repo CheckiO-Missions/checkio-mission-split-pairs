@@ -6,11 +6,11 @@
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Входные данные: </strong> Строка.
+    <strong>Входные данные:</strong> Строка.
 </p>
 
 <p>
-    <strong>Выходные данные: </strong> {% if interpreter.slug == "js-node" %}An array of strings{% else %}Массив строк{% endif %}.
+    <strong>Выходные данные:</strong> {% if interpreter.slug == "js-node" %}Массив{% else %}Список или другой итеративный объект{% endif %} из строк.
 </p>
 
 
@@ -20,23 +20,12 @@
         <strong>Пример:</strong>
     </p>
 
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">splitPairs('abcd') == ['ab', 'cd']
-splitPairs('abc') == ['ab', 'c_']
-splitPairs('abcdf') == ['ab', 'cd', 'f_']
-splitPairs('a') == ['a_']
-splitPairs('') == []
-</pre>
-{% else %}
-<pre class="brush: python">split_pairs('abcd') == ['ab', 'cd']
-split_pairs('abc') == ['ab', 'c_']
-</pre>
-{% endif %}
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
 
 <!-- Here you can explain some constraints for input-->
 <!-- The section is optional -->
 <p>
     <strong>Предварительное условие:</strong>
-    <i>0<=len(str)<=100</i>
+    <i>0 <= len(str) <= 100</i>
 </p>

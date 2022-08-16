@@ -24,7 +24,7 @@
 if len(text) % 2:
     text += '_'   
         </pre>
-        This statement may be written in other ways, which could be less clearer:
+        This statement may be written in other ways, which could be less clear:
         <br>
         <br>
         <pre class="brush: python">
@@ -40,8 +40,8 @@ text += ('', '_')[len(text) % 2] # indexing
         Ok, that is very beginning. What to do next?
     </div>
     <div class="answer">
-        How you should declare variable 'result', which you will return at the end.
-        The type must be one of the Iterable, so let it b list. Do this declaration
+        Now you should declare variable 'result', which you will return at the end.
+        The type must be one of the Iterable, so let it be list. Do this declaration
         with typehints or without:
 <br>
 <br>
@@ -68,7 +68,7 @@ if len(text) % 2:
     text += '_'
     
 result: list = []
-...
+# command we add later
     result.append(text[:2])
     text = text[2:]
         </pre>
@@ -100,7 +100,7 @@ while text:
     </div>
     <div class="answer">
         That's almost all. Just add function statement, return 'result' and 
-        import Iterable from typing to proper typehints work:
+        import Iterable from 'typing' module to proper typehints work:
 <br>
 <br>
         <pre class="brush: python">

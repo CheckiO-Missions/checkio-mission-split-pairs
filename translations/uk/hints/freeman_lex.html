@@ -4,7 +4,7 @@
         Я не маю уявлення, як розв'язувати цю місію.
     </div>
     <div class="answer">
-        Ідея у використанні 'зрізування'. Береш два перші символи з тексту, 
+        Ідея у використанні 'зрізів'. Береш два перші символи з тексту, 
         робиш текст коротшим і повторюєш.
     </div>
 </div>
@@ -41,8 +41,8 @@ text += ('', '_')[len(text) % 2] # індексування
     </div>
     <div class="answer">
         Тепер тобі слід проголосити змінну 'result', значення якої ти повернеш в кінці.
-        Тип змінної має бути одним із ітеративних об'єкті, тож це може бути список.
-        Проголоси змінну з використанням підказок типу або без:
+        Тип змінної має бути одним із ітеративних об'єктів, тож це може бути список.
+        Проголоси змінну з використанням підказок типу змінної або без:
 <br>
 <br>
         <pre class="brush: python">
@@ -58,7 +58,7 @@ result = []
     </div>
     <div class="answer">
         Використай метод <a target="_blank" href="https://www.w3schools.com/python/python_lists_add.asp">list.append()</a> і
-        <a target="_blank" href="https://python-reference.readthedocs.io/en/latest/docs/brackets/slicing.html">зрізування</a>,
+        <a target="_blank" href="https://python-reference.readthedocs.io/en/latest/docs/brackets/slicing.html">'зрізи'</a>,
         щоб додати перші два символи тексту до списку 'result' і оновити текст,
         щоб він став коротшим на цих два символи:  
 <br>
@@ -68,7 +68,7 @@ if len(text) % 2:
     text += '_'
     
 result: list = []
-...
+# команда, яку ми додамо пізніше
     result.append(text[:2])
     text = text[2:]
         </pre>
@@ -101,7 +101,7 @@ while text:
     <div class="answer">
         Це і так майже все. Просто додай декларування самої функції, поверни значення
         змінної 'result' і імпортуй Iterable з модуля typing для коректної роботи
-        підказок типу:
+        підказок типу змінної:
 <br>
 <br>
         <pre class="brush: python">
@@ -141,7 +141,7 @@ def split_pairs(text: str) -> Iterable[str]:
 
     return [text[i:i + 2] for i in range(0, len(text), 2)]
     </pre>
-    Використання діапазону і зрізування. Другий індекс в діапазоні не включається,
+    Використання діапазону і зрізу. Другий індекс в діапазоні не включається,
     тому 'i + 2'.
 </div>
 <div class="question-answer">

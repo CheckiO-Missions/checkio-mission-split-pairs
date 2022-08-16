@@ -127,7 +127,6 @@ split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
         </pre>
         Zipping (taking values on each index) lists with even and odd characters
         together inside list comprehension. Zipping ends with shorter sequence. Or:
-    </div>
     <br>
     <br>
     <pre class="brush: python">
@@ -140,13 +139,14 @@ def split_pairs(text: str) -> Iterable[str]:
     return [text[i:i + 2] for i in range(0, len(text), 2)]
     </pre>
     Using one range and taking slices. Second index is not included, so 'i + 2'.
+    </div>
 </div>
 <div class="question-answer">
     <div class="question">
         Thanks! I know and understand more now! Everything works fine!
     </div>
     <div class="answer">
-        Glad to here it!
+        Glad to hear it!
     </div>
 </div>
 </body>

@@ -46,6 +46,8 @@ text += ('', '_')[len(text) % 2] # indexing
 <br>
 <br>
         <pre class="brush: python">
+result: list[str] = []     
+# or
 result: list = []
 # or just
 result = []
@@ -132,6 +134,7 @@ split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
     <br>
     <pre class="brush: python">
 from typing import Iterable
+
 
 def split_pairs(text: str) -> Iterable[str]:
 

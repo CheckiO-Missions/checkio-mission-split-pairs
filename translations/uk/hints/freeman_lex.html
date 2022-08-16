@@ -1,0 +1,155 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Я не маю уявлення, як розв'язувати цю місію.
+    </div>
+    <div class="answer">
+        Ідея у використанні 'зрізів'. Береш два перші символи з тексту, 
+        робиш текст коротшим і повторюєш.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        З чого мені слід почати?
+    </div>
+    <div class="answer">
+        Твій перший крок - перевірити чи текст має парну кількість символів.
+        Зроби це з використанням умови <a target="_blank" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if</a>,
+        функції <a target="_blank" href="https://docs.python.org/3/library/functions.html#len">len()</a> і оператора
+        <a target="_blank" href="https://www.freecodecamp.org/news/the-python-modulo-operator-what-does-the-symbol-mean-in-python-solved/">%</a>.
+        Якщо довжина тексту непарна, додай символ підкреслення:
+        <br>
+        <br>
+        <pre class="brush: python">
+if len(text) % 2:
+    text += '_'   
+        </pre>
+        Ці команди можуть бути записані іншими способами, поки можливо менш зрозумілими:
+        <br>
+        <br>
+        <pre class="brush: python">
+text += '_' * (len(text) % 2) # множення
+# або
+text += ('', '_')[len(text) % 2] # індексування
+# і т.д.
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Добре, це лише початок. Що мені робити далі?
+    </div>
+    <div class="answer">
+        Тепер тобі слід проголосити змінну 'result', значення якої ти повернеш в кінці.
+        Тип змінної має бути одним із ітеративних об'єктів, тож це може бути список.
+        Проголоси змінну з використанням підказок типу змінної або без:
+<br>
+<br>
+        <pre class="brush: python">
+result: list = []
+# або просто
+result = []
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Це зроблене, але я не розумію, як виконати основну роботу.
+    </div>
+    <div class="answer">
+        Використай метод <a target="_blank" href="https://www.w3schools.com/python/python_lists_add.asp">list.append()</a> і
+        <a target="_blank" href="https://python-reference.readthedocs.io/en/latest/docs/brackets/slicing.html">'зрізи'</a>,
+        щоб додати перші два символи тексту до списку 'result' і оновити текст,
+        щоб він став коротшим на цих два символи:  
+<br>
+<br>
+        <pre class="brush: python">
+if len(text) % 2:
+    text += '_'
+    
+result: list = []
+# команда, яку ми додамо пізніше
+    result.append(text[:2])
+    text = text[2:]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я розумію, але ж це лише один крок. Як робити ці операції з усім текстом?
+    </div>
+    <div class="answer">
+        Оскільки ти робиш текст коротшим з кожним кроком, то повторюй це, поки текст
+        не стане порожнім з циклом <a target="_blank" href="https://www.w3schools.com/python/python_while_loops.asp">while</a>: 
+<br>
+<br>
+        <pre class="brush: python">
+if len(text) % 2:
+    text += '_'
+    
+result: list = []
+while text:
+    result.append(text[:2])
+    text = text[2:]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Добре, як має виглядати остаточне рішення?
+    </div>
+    <div class="answer">
+        Це і так майже все. Просто додай декларування самої функції, поверни значення
+        змінної 'result' і імпортуй Iterable з модуля typing для коректної роботи
+        підказок типу змінної:
+<br>
+<br>
+        <pre class="brush: python">
+from typing import Iterable
+
+def split_pairs(text: str) -> Iterable[str]:
+
+    if len(text) % 2:
+        text += '_'
+        
+    result: list = []
+    while text:
+        result.append(text[:2])
+        text = text[2:]
+    
+    return result
+        </pre>
+        Є багато інших розвязків, які ти зможеш побачити після того, як твоє рішення
+        успішно пройде всі тести. Наприклад:
+        <br>
+        <br>
+        <pre class="brush: python">
+split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
+        </pre>
+        Зіпування (беруться значення кожного індексу з усіх елементів) списків з
+        парними і непарними символами разом всередині генератора списків.
+        Зіпування закінчується із завершенням коротшого списку. Або:
+    </div>
+    <br>
+    <br>
+    <pre class="brush: python">
+from typing import Iterable
+
+def split_pairs(text: str) -> Iterable[str]:
+
+    text += '_' if len(text) % 2 else ''
+
+    return [text[i:i + 2] for i in range(0, len(text), 2)]
+    </pre>
+    Використання діапазону і зрізу. Другий індекс в діапазоні не включається,
+    тому 'i + 2'.
+</div>
+<div class="question-answer">
+    <div class="question">
+        Дякую! Тепер я знаю і розумію більше! Все працює як слід!
+    </div>
+    <div class="answer">
+        Приємно це чути!
+    </div>
+</div>
+</body>

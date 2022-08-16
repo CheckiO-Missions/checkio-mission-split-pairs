@@ -1,0 +1,152 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        The idea is to use slicing. Take first two characters from text, make text
+        shorter and repeat.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        What instrument should I start from?
+    </div>
+    <div class="answer">
+        Your first step is to check if the text has even number of characters.
+        Do it with <a target="_blank" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if</a> statement,
+        <a target="_blank" href="https://docs.python.org/3/library/functions.html#len">len()</a> function and
+        <a target="_blank" href="https://www.freecodecamp.org/news/the-python-modulo-operator-what-does-the-symbol-mean-in-python-solved/">%</a> operator.
+        If the length of text is not evenly divisible by 2, add underscore:
+        <br>
+        <br>
+        <pre class="brush: python">
+if len(text) % 2:
+    text += '_'   
+        </pre>
+        This statement may be written in other ways, which could be less clear:
+        <br>
+        <br>
+        <pre class="brush: python">
+text += '_' * (len(text) % 2) # multiplication
+# or
+text += ('', '_')[len(text) % 2] # indexing
+# etc.
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, that is very beginning. What to do next?
+    </div>
+    <div class="answer">
+        Now you should declare variable 'result', which you will return at the end.
+        The type must be one of the Iterable, so let it be list. Do this declaration
+        with typehints or without:
+<br>
+<br>
+        <pre class="brush: python">
+result: list = []
+# or just
+result = []
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I've done these preparations, but don't understand how to do the main job.  
+    </div>
+    <div class="answer">
+        Use <a target="_blank" href="https://www.w3schools.com/python/python_lists_add.asp">list.append()</a> method and
+        <a target="_blank" href="https://python-reference.readthedocs.io/en/latest/docs/brackets/slicing.html">slicing</a>
+        to add first two characters of text to 'result' and update text being
+        without these two characters:  
+<br>
+<br>
+        <pre class="brush: python">
+if len(text) % 2:
+    text += '_'
+    
+result: list = []
+# command we add later
+    result.append(text[:2])
+    text = text[2:]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I see, but that's only one step. How to make these operations with all text?
+    </div>
+    <div class="answer">
+        Since you make your text shorter with every step, do it until text is not
+        empty with <a target="_blank" href="https://www.w3schools.com/python/python_while_loops.asp">while</a> loop: 
+<br>
+<br>
+        <pre class="brush: python">
+if len(text) % 2:
+    text += '_'
+    
+result: list = []
+while text:
+    result.append(text[:2])
+    text = text[2:]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok. How my final solution looks like?
+    </div>
+    <div class="answer">
+        That's almost all. Just add function statement, return 'result' and 
+        import Iterable from 'typing' module to proper typehints work:
+<br>
+<br>
+        <pre class="brush: python">
+from typing import Iterable
+
+def split_pairs(text: str) -> Iterable[str]:
+
+    if len(text) % 2:
+        text += '_'
+        
+    result: list = []
+    while text:
+        result.append(text[:2])
+        text = text[2:]
+    
+    return result
+        </pre>
+        There are a lot of other solutions you be able to see after your solution
+        passes all tests successfully. For example:
+        <br>
+        <br>
+        <pre class="brush: python">
+split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
+        </pre>
+        Zipping (taking values on each index) lists with even and odd characters
+        together inside list comprehension. Zipping ends with shorter sequence. Or:
+    </div>
+    <br>
+    <br>
+    <pre class="brush: python">
+from typing import Iterable
+
+def split_pairs(text: str) -> Iterable[str]:
+
+    text += '_' if len(text) % 2 else ''
+
+    return [text[i:i + 2] for i in range(0, len(text), 2)]
+    </pre>
+    Using one range and taking slices. Second index is not included, so 'i + 2'.
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! I know and understand more now! Everything works fine!
+    </div>
+    <div class="answer">
+        Glad to here it!
+    </div>
+</div>
+</body>

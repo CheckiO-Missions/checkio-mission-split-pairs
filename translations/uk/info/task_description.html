@@ -1,0 +1,33 @@
+<!-- Describe task in general -->
+
+<p>
+    Розбий рядок на пари символів. Якщо рядок містить непарну кількість символів,
+    тоді відсутній другий символ останньої пари повинен бути замінений на символ
+    підкреслювання ('_').
+</p>
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Вхідні дані:</strong> Рядок.
+</p>
+
+<p>
+    <strong>Вихідні дані:</strong> {% if interpreter.slug == "js-node" %}Масив{% else %}Список або інший ітеративний об'єкт{% endif %} з рядків.
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Приклади:</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Передумова:</strong>
+    <i>0 <= len(text) <= 100</i>
+</p>

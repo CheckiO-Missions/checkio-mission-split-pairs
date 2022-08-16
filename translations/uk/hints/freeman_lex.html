@@ -46,6 +46,8 @@ text += ('', '_')[len(text) % 2] # індексування
 <br>
 <br>
         <pre class="brush: python">
+result: list[str] = []    
+# або        
 result: list = []
 # або просто
 result = []
@@ -107,6 +109,7 @@ while text:
         <pre class="brush: python">
 from typing import Iterable
 
+
 def split_pairs(text: str) -> Iterable[str]:
 
     if len(text) % 2:
@@ -129,11 +132,11 @@ split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
         Зіпування (беруться значення кожного індексу з усіх елементів) списків з
         парними і непарними символами разом всередині генератора списків.
         Зіпування закінчується із завершенням коротшого списку. Або:
-    </div>
     <br>
     <br>
     <pre class="brush: python">
 from typing import Iterable
+
 
 def split_pairs(text: str) -> Iterable[str]:
 
@@ -143,6 +146,7 @@ def split_pairs(text: str) -> Iterable[str]:
     </pre>
     Використання діапазону і зрізу. Другий індекс в діапазоні не включається,
     тому 'i + 2'.
+    </div>
 </div>
 <div class="question-answer">
     <div class="question">

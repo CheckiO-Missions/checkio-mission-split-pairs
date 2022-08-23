@@ -121,18 +121,25 @@ def split_pairs(text: str) -> Iterable[str]:
     
     return result
         </pre>
-        There are a lot of other solutions you be able to see after your solution
-        passes all tests successfully. For example:
-        <br>
-        <br>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Show me more solutions!<br />
+        'Cause I wanna be a Python Ninnjaa!
+    </div>
+    <div class="answer">
+        Sure, grab it!
+        <br />
+        <br />
         <pre class="brush: python">
 split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
         </pre>
         Zipping (taking values on each index) lists with even and odd characters
-        together inside list comprehension. Zipping ends with shorter sequence. Or:
-    <br>
-    <br>
-    <pre class="brush: python">
+        together inside list comprehension. Zipping ends with shorter sequence.
+        <br />
+        <br />
+        <pre class="brush: python">
 from typing import Iterable
 
 
@@ -140,17 +147,21 @@ def split_pairs(text: str) -> Iterable[str]:
 
     text += '_' if len(text) % 2 else ''
 
-    return [text[i:i + 2] for i in range(0, len(text), 2)]
-    </pre>
-    Using one range and taking slices. Second index is not included, so 'i + 2'.
+    return [text[i:i + 2] for i in range(0, len(text), 2)]        
+        </pre>
+		Using one range and taking slices. Second index is not included, so 'i + 2'.
+        <br />
+        <br />
+		If you click "Best solutions" at mission menu, you see a lot of other
+		interesting solutions!
     </div>
 </div>
 <div class="question-answer">
-    <div class="question">
-        Thanks! I know and understand more now! Everything works fine!
-    </div>
-    <div class="answer">
-        Glad to hear it!
-    </div>
+	<div class="question">
+		Thanks! I know and understand more now! Everything works fine!
+	</div>
+	<div class="answer">
+		Glad to hear it!
+	</div>
 </div>
 </body>

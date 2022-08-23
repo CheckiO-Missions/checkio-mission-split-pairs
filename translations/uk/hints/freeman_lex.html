@@ -104,8 +104,8 @@ while text:
         Це і так майже все. Просто додай декларування самої функції, поверни значення
         змінної 'result' і імпортуй Iterable з модуля typing для коректної роботи
         підказок типу змінної:
-<br>
-<br>
+        <br>
+        <br>
         <pre class="brush: python">
 from typing import Iterable
 
@@ -122,19 +122,25 @@ def split_pairs(text: str) -> Iterable[str]:
     
     return result
         </pre>
-        Є багато інших розвязків, які ти зможеш побачити після того, як твоє рішення
-        успішно пройде всі тести. Наприклад:
-        <br>
-        <br>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Покажи мені більше розв'язків!<br />
+        Адже я хочу стати справжнім Python ніндзя!
+    <div class="answer">
+        Звісно, тримай!
+        <br />
+        <br />
         <pre class="brush: python">
 split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
         </pre>
         Зіпування (беруться значення кожного індексу з усіх елементів) списків з
         парними і непарними символами разом всередині генератора списків.
-        Зіпування закінчується із завершенням коротшого списку. Або:
-    <br>
-    <br>
-    <pre class="brush: python">
+        Зіпування закінчується із завершенням коротшого списку.
+        <br />
+        <br />
+        <pre class="brush: python">
 from typing import Iterable
 
 
@@ -142,18 +148,23 @@ def split_pairs(text: str) -> Iterable[str]:
 
     text += '_' if len(text) % 2 else ''
 
-    return [text[i:i + 2] for i in range(0, len(text), 2)]
-    </pre>
-    Використання діапазону і зрізу. Другий індекс в діапазоні не включається,
+    return [text[i:i + 2] for i in range(0, len(text), 2)]        
+        </pre>
+		Використання діапазону і зрізу. Другий індекс в діапазоні не включається,
     тому 'i + 2'.
+        <br />
+        <br />
+		Натискай "Best solutions" в меню місії і ти побачиш багато інших цікавих
+        розв'язків!
     </div>
 </div>
 <div class="question-answer">
-    <div class="question">
-        Дякую! Тепер я знаю і розумію більше! Все працює як слід!
-    </div>
-    <div class="answer">
-        Приємно це чути!
-    </div>
+	<div class="question">
+        Дякую, тепер я знаю і розумію більше! Все працює як слід!
+	</div>
+	<div class="answer">
+		Приємно це чути!
+	</div>
 </div>
 </body>
+

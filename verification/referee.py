@@ -11,8 +11,8 @@ api.add_listener(
         tests=TESTS,
         checker=to_list,
         function_name={
-            "python": "split_pairs", # check function name!
-            "js": "splitPairs"      # check function name!
+            "python": "split_pairs",
+            "js": "splitPairs"    
         },
         cover_code={
             'python-3': {},

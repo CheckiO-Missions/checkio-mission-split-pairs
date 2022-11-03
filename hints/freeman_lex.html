@@ -14,7 +14,7 @@
     </div>
     <div class="answer">
         <p>
-            Your first step is to check if the text has even number of characters. Do it with <a target="_blank" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if</a> statement, <a target="_blank" href="https://docs.python.org/3/library/functions.html#len">str.len()</a> function and <a target="_blank" href="https://www.freecodecamp.org/news the-python-modulo-operator-what-does-the-symbol-mean-in-python-solved/">%</a> operator.If the length of text is not evenly divisible by 2, add underscore:
+            Your first step is to check if the text has even number of characters. Do it with <a target="_blank" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if</a> statement, <a target="_blank" href="https://docs.python.org/3/library/functions.html#len">str.len()</a> function and <a target="_blank" href="https://www.freecodecamp.org/news the-python-modulo-operator-what-does-the-symbol-mean-in-python-solved/">% modulo</a> operator. If the length of text is not evenly divisible by 2, add underscore:
         </p>
         <pre class="brush: python">
 if len(text) % 2:
@@ -112,15 +112,19 @@ def split_pairs(text: str) -> Iterable[str]:
 <div class="question-answer">
     <div class="question">
         <i>Show me more solutions!<br />
-        'Cause I wanna be a 🥇 Python Ninnjaa!</i>
+        'Cause I wanna be a real 🥇 Python Ninnjaa!</i>
     </div>
     <div class="answer">
         <p>Sure, grab it!</p>
+        <p>
+            Zipping (taking values on each index) lists with even and odd characters together inside list comprehension. Zipping ends with shorter sequence.
+        </p>
         <pre class="brush: python">
 split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
         </pre>
-        <p>Zipping (taking values on each index) lists with even and odd characters
-        together inside list comprehension. Zipping ends with shorter sequence.</p>
+        <p>
+            Using one range and taking slices. Second index is not included, so <b class="code">i + 2</b>.
+        </p>
         <pre class="brush: python">
 from typing import Iterable
 
@@ -131,7 +135,6 @@ def split_pairs(text: str) -> Iterable[str]:
 
     return [text[i:i + 2] for i in range(0, len(text), 2)]        
         </pre>
-		<p>Using one range and taking slices. Second index is not included, so <b class="code">i + 2</b>.</p>
 		<p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
     </div>
 </div>

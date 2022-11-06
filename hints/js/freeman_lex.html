@@ -1,0 +1,142 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <i>I have no idea how to start solving this mission.</i>
+    </div>
+    <div class="answer">
+        <p>💡 The idea is to use slicing. Take first two characters from text, make text
+        shorter and repeat.</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>What instrument should I start from?</i>
+    </div>
+    <div class="answer">
+        <p>
+            Your first step is to check if the text has even number of characters. Do it with <a target="_blank" href="https://www.w3schools.com/js/js_if_else.asp">if</a> statement, <a target="_blank" href="https://www.w3schools.com/jsref/jsref_length_string.asp">string.length</a> property and <a target="_blank" href="https://www.w3schools.com/js/js_operators.asp">% modulus</a> operator. If the length of text is not evenly divisible by 2, add underscore:
+        </p>
+        <pre class="brush: javascript">
+if (text.length % 2)
+    text += "_";
+// or
+text += '_' * (text.length % 2);
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Ok, that is very beginning. What to do next?</i>
+    </div>
+    <div class="answer">
+       <p>
+            Now you should declare variable <b class="code">res</b> with the initial value of empty array, which you will return at the end. Do this declaration with typehints or without:
+       </p> 
+        <pre class="brush: javascript">
+let res: string[] = [];
+// or
+let res = [];
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>I've done these preparations, but don't understand how to do the main job.</i> 
+    </div>
+    <div class="answer">
+        <p>
+            Use <a target="_blank" href="https://www.w3schools.com/jsref/jsref_push.asp">array.push()</a> method and <a target="_blank" href="https://www.w3schools.com/jsref/jsref_slice_array.asp">array.slice()</a> method to add first two characters of text to <b class="code">res</b> and update text being without these two characters:
+        </p>
+        <pre class="brush: javascript">
+if (text.length % 2)
+text += "_";
+        
+let res: string[] = [];
+// command we add later
+    res.push(text.slice(0, 2));
+    text = text.slice(2);       
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>I see, but that's only one step. How to make these operations with all text?</i>
+    </div>
+    <div class="answer">
+        <p>
+            Since you make your text shorter with every step, do it until text is not empty with <a target="_blank" href="https://www.w3schools.com/js/js_loop_while.asp">while</a> loop:
+        </p>
+        <pre class="brush: javascript">
+if (text.length % 2)
+text += "_";
+        
+let res: string[] = [];
+while (text) {
+    res.push(text.slice(0, 2));
+    text = text.slice(2);
+}  
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Ok. How my final solution looks like?</i>
+    </div>
+    <div class="answer">
+        <p>
+            That's almost all. Just add function statement and return <b class="code">res</b>:
+        </p>
+        <pre class="brush: javascript">
+function splitPairs(text: string): string[] {
+
+    if (text.length % 2)
+        text += "_";
+    
+    let res: string[] = [];
+    while (text) {
+        res.push(text.slice(0, 2));
+        text = text.slice(2);
+    }             
+    return res;
+}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Javascript Hero!</i>
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            Iterate over the text, taking each time next two characters.
+        </p>
+        <pre class="brush: javascript">
+function splitPairs(text: string): string[] {
+    
+    let result: string[] = [];
+    for(let i: number = 0; i < text.length; i += 2){
+        result.push((text + '_').slice(i, i + 2));
+    }
+    return result;
+}        
+        </pre>
+        <p>
+            Use regular expression to find all two-characters non-overlapping substrings.
+        </p>
+        <pre class="brush: javascript">
+var splitPairs = t => (t + "_").match(/../g) || []
+        </pre>
+		<p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+	<div class="question">
+		<i>Thanks! I know and understand more now! Everything works fine!</i>
+	</div>
+	<div class="answer">
+		👍 Glad to hear it!
+	</div>
+</div>
+</body>

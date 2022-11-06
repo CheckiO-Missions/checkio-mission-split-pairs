@@ -1,0 +1,142 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <i>Я уявлення не маю, як початок розв'язування цієї місії.</i>
+    </div>
+    <div class="answer">
+        <p>💡 Ідея полягає у використанні зрізів. Візьми перші два символи з тексту, зроби текст
+        коротшим і повтори.</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Добре, з чого мені почати?</i>
+    </div>
+    <div class="answer">
+        <p>
+            Твій перший крок - перевірити, чи в тексті парна кількість символів. Зроби це, використовуючи вираз <a target="_blank" href="https://www.w3schools.com/js/js_if_else.asp">if</a>, властивість <a target="_blank" href="https://www.w3schools.com/jsref/jsref_length_string.asp">string.length</a> і оператор остачі <a target="_blank" href="https://www.w3schools.com/js/js_operators.asp">%</a>. Якщо довжина тексту не ділиться на 2 без остачі, додай підкреслення:
+        </p>
+        <pre class="brush: javascript">
+if (text.length % 2)
+    text += "_";
+// або
+text += '_' * (text.length % 2);
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Гаразд, це самий початок. Що робити далі?</i>
+    </div>
+    <div class="answer">
+       <p>
+            Тепер тобі слід проголосити змінну <b class="code">res</b> з початковим значенням порожнього масиву, який ти повернеш в кінці. Зроби цю проголошення з підказками типу або без:
+       </p> 
+        <pre class="brush: javascript">
+let res: string[] = [];
+// або
+let res = [];
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Я провів підготовчу роботу, але не розумію, що робити далі.</i> 
+    </div>
+    <div class="answer">
+        <p>
+            Використай методи <a target="_blank" href="https://www.w3schools.com/jsref/jsref_push.asp">array.push()</a> і <a target="_blank" href="https://www.w3schools.com/jsref/jsref_slice_array.asp">array.slice()</a>, щоб додати перші два символи тексту в <b class="code">res</b> і зробити текст коротшим:
+        </p>
+        <pre class="brush: javascript">
+if (text.length % 2)
+text += "_";
+        
+let res: string[] = [];
+// команда, яку ми додамо пізніше
+    res.push(text.slice(0, 2));
+    text = text.slice(2);       
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Я розумію, але ж це лише один крок. Як зробити ці операції з усім текстом?</i>
+    </div>
+    <div class="answer">
+        <p>
+            Оскільки ти робиш текст коротшим з кожним кроком, виконуй операції поки текст не стане порожнім з використанням циклу <a target="_blank" href="https://www.w3schools.com/js/js_loop_while.asp">while</a>:
+        </p>
+        <pre class="brush: javascript">
+if (text.length % 2)
+text += "_";
+        
+let res: string[] = [];
+while (text) {
+    res.push(text.slice(0, 2));
+    text = text.slice(2);
+}  
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Добре, то як має виглядати моє остаточне рішення?</i>
+    </div>
+    <div class="answer">
+        <p>
+            Це майже все. Просто обгорни код у вираз функції та поверни <b class="code">res</b>:
+        </p>
+        <pre class="brush: javascript">
+function splitPairs(text: string): string[] {
+
+    if (text.length % 2)
+        text += "_";
+    
+    let res: string[] = [];
+    while (text) {
+        res.push(text.slice(0, 2));
+        text = text.slice(2);
+    }             
+    return res;
+}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Покажи мені більше розв'язків!<br />
+        Адже я хочу бути справжнім 🥇 Героєм Javascript!</i>
+    </div>
+    <div class="answer">
+        <p>Звісно, тримай!</p>
+        <p>
+            Рухайся текстом, беручи кожен раз наступні два символи.
+        </p>
+        <pre class="brush: javascript">
+function splitPairs(text: string): string[] {
+    
+    let result: string[] = [];
+    for(let i: number = 0; i < text.length; i += 2){
+        result.push((text + '_').slice(i, i + 2));
+    }
+    return result;
+}        
+        </pre>
+        <p>
+            Використай регулярний вираз, щоб знайти всі підрядки з двох символів, що не перекриваються.
+        </p>
+        <pre class="brush: javascript">
+var splitPairs = t => (t + "_").match(/../g) || []
+        </pre>
+		<p><b>Тисни "Best solutions" в меню місії і побачиш багато інших цікавих розв'язків!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+	<div class="question">
+		<i>Дякую! Тепер я знаю і розумію більше! Все працює як слід!</i>
+	</div>
+	<div class="answer">
+		👍 Приємно це чути!
+	</div>
+</div>
+</body>

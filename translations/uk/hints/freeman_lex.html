@@ -121,12 +121,15 @@ def split_pairs(text: str) -> Iterable[str]:
         <p>
             Зіпування (беруться значення кожного індексу з усіх елементів) списків з парними і непарними символами разом всередині генератора списків. Зіпування закінчується із завершенням коротшого списку.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
         </pre>
+        </div>
         <p>
             Використання діапазону і зрізу. Другий індекс в діапазоні не включається, тому <b class="code">i + 2</b>.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 from collections.abc import Iterable
 
@@ -137,6 +140,7 @@ def split_pairs(text: str) -> Iterable[str]:
 
     return [text[i:i + 2] for i in range(0, len(text), 2)]        
         </pre>
+        </div>
 		<p><b>Тисни "Best solutions" в меню місії і ти побачиш багато інших цікавих
         розв'язків!</b></p>
     </div>

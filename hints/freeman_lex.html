@@ -121,12 +121,15 @@ def split_pairs(text: str) -> Iterable[str]:
         <p>
             Zipping (taking values on each index) lists with even and odd characters together inside list comprehension. Zipping ends with shorter sequence.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
         </pre>
+        </div>
         <p>
             Using one range and taking slices. Second index is not included, so <b class="code">i + 2</b>.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 from collections.abc import Iterable
 
@@ -137,6 +140,7 @@ def split_pairs(text: str) -> Iterable[str]:
 
     return [text[i:i + 2] for i in range(0, len(text), 2)]        
         </pre>
+        </div>
 		<p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
     </div>
 </div>

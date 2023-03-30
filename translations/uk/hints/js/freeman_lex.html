@@ -114,6 +114,7 @@ function splitPairs(text: string): string[] {
         <p>
             Рухайся текстом, беручи кожен раз наступні два символи.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function splitPairs(text: string): string[] {
     
@@ -124,12 +125,15 @@ function splitPairs(text: string): string[] {
     return result;
 }        
         </pre>
+        </div>
         <p>
             Використай регулярний вираз, щоб знайти всі підрядки з двох символів, що не перекриваються.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 var splitPairs = t => (t + "_").match(/../g) || []
         </pre>
+        </div>
 		<p><b>Тисни "Best solutions" в меню місії і побачиш багато інших цікавих розв'язків!</b></p>
     </div>
 </div>

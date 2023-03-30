@@ -114,6 +114,7 @@ function splitPairs(text: string): string[] {
         <p>
             Iterate over the text, taking each time next two characters.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function splitPairs(text: string): string[] {
     
@@ -124,12 +125,15 @@ function splitPairs(text: string): string[] {
     return result;
 }        
         </pre>
+        </div>
         <p>
             Use regular expression to find all two-characters non-overlapping substrings.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 var splitPairs = t => (t + "_").match(/../g) || []
         </pre>
+        </div>
 		<p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
     </div>
 </div>

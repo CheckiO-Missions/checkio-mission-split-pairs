@@ -1,7 +1,7 @@
 <body data-author="freeman_lex">
 <div class="question-answer">
     <div class="question">
-        <i>I have no idea how to start solving this mission.</i>
+        I have no idea how to start solving this mission.
     </div>
     <div class="answer">
         <p>💡 The idea is to use slicing. Take first two characters from text, make text
@@ -10,7 +10,7 @@
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>What instrument should I start from?</i>
+        What instrument should I start from?
     </div>
     <div class="answer">
         <p>
@@ -30,7 +30,7 @@ text += ('', '_')[len(text) % 2] # indexing
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>Ok, that is very beginning. What to do next?</i>
+        Ok, that is very beginning. What to do next?
     </div>
     <div class="answer">
        <p>
@@ -47,7 +47,7 @@ result = []
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>I've done these preparations, but don't understand how to do the main job.</i> 
+        I've done these preparations, but don't understand how to do the main job.
     </div>
     <div class="answer">
         <p>
@@ -66,7 +66,7 @@ result: list = []
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>I see, but that's only one step. How to make these operations with all text?</i>
+        I see, but that's only one step. How to make these operations with all text?
     </div>
     <div class="answer">
         <p>
@@ -85,14 +85,15 @@ while text:
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>Ok. How my final solution looks like?</i>
+        Ok. How my final solution looks like?
     </div>
     <div class="answer">
         <p>
             That's almost all. Just add function statement, return <b class="code">result</b> and import <b class="code">Iterable</b> from <b class="code">typing</b> module to proper typehints work:
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
-from typing import Iterable
+from collections.abc import Iterable
 
 
 def split_pairs(text: str) -> Iterable[str]:
@@ -107,12 +108,13 @@ def split_pairs(text: str) -> Iterable[str]:
     
     return result
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        <i>Show me more solutions!<br />
-        'Cause I wanna be a real 🥇 Python Ninnjaa!</i>
+        Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Python Ninnjaa!
     </div>
     <div class="answer">
         <p>Sure, grab it!</p>
@@ -126,7 +128,7 @@ split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
             Using one range and taking slices. Second index is not included, so <b class="code">i + 2</b>.
         </p>
         <pre class="brush: python">
-from typing import Iterable
+from collections.abc import Iterable
 
 
 def split_pairs(text: str) -> Iterable[str]:
@@ -140,7 +142,7 @@ def split_pairs(text: str) -> Iterable[str]:
 </div>
 <div class="question-answer">
 	<div class="question">
-		<i>Thanks! I know and understand more now! Everything works fine!</i>
+		Thanks! I know and understand more now! Everything works fine!
 	</div>
 	<div class="answer">
 		👍 Glad to hear it!

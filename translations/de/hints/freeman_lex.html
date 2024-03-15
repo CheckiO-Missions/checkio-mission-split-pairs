@@ -1,0 +1,155 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+    </div>
+    <div class="answer">
+        <p>💡 Die Idee ist, Slicing zu verwenden. Nehmen Sie die ersten beiden Zeichen aus dem Text, machen Sie den Text
+        kürzen und wiederholen.</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Mit welchem Instrument soll ich beginnen?
+    </div>
+    <div class="answer">
+        <p>
+            Als erstes müssen Sie prüfen, ob der Text eine gerade Anzahl von Zeichen hat. Tun Sie dies mit der Anweisung <a target="_blank" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if</a>, der Funktion <a target="_blank" href="https://docs.python.org/3/library/functions.html#len">str.len()</a> und dem Operator <a target="_blank" href="https://www.freecodecamp.org/news the-python-modulo-operator-what-does-the-symbol-mean-in-python-solved/">% modulo</a>. Wenn die Länge des Textes nicht gleichmäßig durch 2 teilbar ist, fügen Sie einen Unterstrich hinzu:
+        </p>
+        <pre class="brush: python">
+if len(text) % 2:
+    text += '_'   
+        </pre>
+        <p>Diese Anweisung kann auch auf andere Weise geschrieben werden, die weniger klar sein könnte:</p>
+        <pre class="brush: python">
+text += '_' * (len(text) % 2) # multiplication
+# or
+text += ('', '_')[len(text) % 2] # indexing
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, das ist ein guter Anfang. Was ist als nächstes zu tun?
+    </div>
+    <div class="answer">
+       <p>
+            Jetzt sollten Sie die Variable <b class="code">result</b> deklarieren, die Sie am Ende zurückgeben werden. Der Typ muss einer der Iterable sein, also lassen Sie ihn list sein. Führen Sie diese Deklaration mit oder ohne typehints durch:
+       </p> 
+        <pre class="brush: python">
+result: list[str] = []     
+# or
+result: list = []
+# or just
+result = []
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich habe diese Vorbereitungen getroffen, aber ich verstehe nicht, wie ich die Hauptaufgabe erledigen soll.
+    </div>
+    <div class="answer">
+        <p>
+            Verwenden Sie die Methode <a target="_blank" href="https://www.w3schools.com/python/python_lists_add.asp">list.append()</a> und <a target="_blank" href="https://python-reference.readthedocs.io/en/latest/docs/brackets/slicing.html">slicing</a>, um die ersten beiden Zeichen des Textes zu <b class="code">result</b> hinzuzufügen und den Text ohne diese beiden Zeichen zu aktualisieren:
+        </p>
+        <pre class="brush: python">
+if len(text) % 2:
+    text += '_'
+    
+result: list = []
+# command we add later
+    result.append(text[:2])
+    text = text[2:]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich verstehe, aber das ist nur ein Schritt. Wie kann man diese Operationen mit dem gesamten Text durchführen?
+    </div>
+    <div class="answer">
+        <p>
+            Da Ihr Text mit jedem Schritt kürzer wird, sollten Sie ihn mit der Schleife <a target="_blank" href="https://www.w3schools.com/python/python_while_loops.asp">while</a> so lange bearbeiten, bis der Text nicht mehr leer ist:
+        </p>
+        <pre class="brush: python">
+if len(text) % 2:
+    text += '_'
+    
+result: list = []
+while text:
+    result.append(text[:2])
+    text = text[2:]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok. Wie sieht meine endgültige Lösung aus?
+    </div>
+    <div class="answer">
+        <p>
+            Das ist fast alles. Fügen Sie einfach eine Funktionsanweisung hinzu, geben Sie <b class="code">result</b> zurück und importieren Sie <b class="code">Iterable</b> aus dem Modul <b class="code">collections.abc</b>, damit die typehints richtig funktionieren:
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+
+
+def split_pairs(text: str) -> Iterable[str]:
+
+    if len(text) % 2:
+        text += '_'
+        
+    result: list = []
+    while text:
+        result.append(text[:2])
+        text = text[2:]
+    
+    return result
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Zeigen Sie mir mehr Lösungen!<br />
+        denn ich will ein echter 🥇 Python Ninnjaa sein!
+    </div>
+    <div class="answer">
+        <p>Klar, schnapp sie dir!</p>
+        <p>
+            Zipping (Werte auf jedem Index nehmen) von Listen mit geraden und ungeraden Zeichen zusammen innerhalb der Listenauffassung. Zipping endet mit einer kürzeren Sequenz.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
+        </pre>
+        </div>
+        <p>
+            Verwendung eines Bereichs und Übernahme von Slices. Der zweite Index wird nicht berücksichtigt, daher <b class="code">i + 2</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+
+
+def split_pairs(text: str) -> Iterable[str]:
+
+    text += '_' if len(text) % 2 else ''
+
+    return [text[i:i + 2] for i in range(0, len(text), 2)]        
+        </pre>
+        </div>
+		<p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+	<div class="question">
+		Danke! Ich weiß und verstehe jetzt mehr! Alles funktioniert einwandfrei!
+	</div>
+	<div class="answer">
+		👍 Freut mich zu hören!
+	</div>
+</div>
+</body>

@@ -1,0 +1,148 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+    </div>
+    <div class="answer">
+        <p>💡 Die Idee ist, Slicing zu verwenden. Nehmen Sie die ersten beiden Zeichen aus dem Text, machen Sie den Text
+        kürzen und wiederholen.</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Mit welchem Instrument soll ich beginnen?
+    </div>
+    <div class="answer">
+        <p>
+            Als erstes müssen Sie prüfen, ob der Text eine gerade Anzahl von Zeichen hat. Tun Sie dies mit der Anweisung <a target="_blank" href="https://www.w3schools.com/js/js_if_else.asp">if</a>, der Eigenschaft <a target="_blank" href="https://www.w3schools.com/jsref/jsref_length_string.asp">string.length</a> und dem Operator <a target="_blank" href="https://www.w3schools.com/js/js_operators.asp">% modulus</a>. Wenn die Länge des Textes nicht gleichmäßig durch 2 teilbar ist, fügen Sie einen Unterstrich hinzu:
+        </p>
+        <pre class="brush: javascript">
+if (text.length % 2)
+    text += "_";
+// or
+text += '_' * (text.length % 2);
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, das ist der Anfang. Was ist als nächstes zu tun?
+    </div>
+    <div class="answer">
+       <p>
+            Jetzt sollten Sie die Variable <b class="code">res</b> mit dem Anfangswert eines leeren Arrays deklarieren, den Sie am Ende zurückgeben werden. Machen Sie diese Deklaration mit oder ohne typehints:
+       </p> 
+        <pre class="brush: javascript">
+let res: string[] = [];
+// or
+let res = [];
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich habe diese Vorbereitungen getroffen, aber ich verstehe nicht, wie ich die Hauptaufgabe erledigen soll. 
+    </div>
+    <div class="answer">
+        <p>
+            Verwenden Sie die Methoden <a target="_blank" href="https://www.w3schools.com/jsref/jsref_push.asp">array.push()</a> und <a target="_blank" href="https://www.w3schools.com/jsref/jsref_slice_array.asp">array.slice()</a>, um die ersten beiden Zeichen des Textes zu <b class="code">res</b> hinzuzufügen und den Text ohne diese beiden Zeichen zu aktualisieren:
+        </p>
+        <pre class="brush: javascript">
+if (text.length % 2)
+text += "_";
+        
+let res: string[] = [];
+// command we add later
+    res.push(text.slice(0, 2));
+    text = text.slice(2);       
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich verstehe, aber das ist nur ein Schritt. Wie kann man diese Operationen mit dem gesamten Text durchführen?
+    </div>
+    <div class="answer">
+        <p>
+            Da Ihr Text mit jedem Schritt kürzer wird, sollten Sie ihn mit der Schleife <a target="_blank" href="https://www.w3schools.com/js/js_loop_while.asp">while</a> so lange bearbeiten, bis der Text nicht mehr leer ist:
+        </p>
+        <pre class="brush: javascript">
+if (text.length % 2)
+text += "_";
+        
+let res: string[] = [];
+while (text) {
+    res.push(text.slice(0, 2));
+    text = text.slice(2);
+}  
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok. Wie sieht meine endgültige Lösung aus?
+    </div>
+    <div class="answer">
+        <p>
+            Das ist fast alles. Fügen Sie einfach eine Funktionsanweisung hinzu und geben Sie <b class="code">res</b> zurück:
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function splitPairs(text: string): string[] {
+
+    if (text.length % 2)
+        text += "_";
+    
+    let res: string[] = [];
+    while (text) {
+        res.push(text.slice(0, 2));
+        text = text.slice(2);
+    }             
+    return res;
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Zeigen Sie mir mehr Lösungen!<br />
+        denn ich möchte ein echter 🥇 Javascript-Held sein!
+    </div>
+    <div class="answer">
+        <p>Klar, schnappen Sie es sich!</p>
+        <p>
+            Iterieren Sie über den Text und nehmen Sie jedes Mal die nächsten zwei Zeichen.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function splitPairs(text: string): string[] {
+    
+    let result: string[] = [];
+    for(let i: number = 0; i < text.length; i += 2){
+        result.push((text + '_').slice(i, i + 2));
+    }
+    return result;
+}        
+        </pre>
+        </div>
+        <p>
+            Verwenden Sie einen regulären Ausdruck, um alle zwei Zeichen umfassenden Teilstrings zu finden, die sich nicht überschneiden.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+var splitPairs = t => (t + "_").match(/../g) || []
+        </pre>
+        </div>
+		<p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+	<div class="question">
+		Danke! Ich weiß und verstehe jetzt mehr! Alles funktioniert einwandfrei!
+	</div>
+	<div class="answer">
+		👍 Freut mich zu hören!
+	</div>
+</div>
+</body>

@@ -1,0 +1,148 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Я понятия не имею, как приступить к решению этой задачи.
+    </div>
+    <div class="answer">
+        <p>💡 Идея в том, чтобы использовать срезы. Возьмите из текста первые два символа, 
+            обрежьте их и повторите.</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        С какого инструмента мне следует начать?
+    </div>
+    <div class="answer">
+        <p>
+            Ваш первый шаг - проверить, содержит ли текст четное количество символов. Сделайте это с помощью оператора <a target="_blank" href="https://www.w3schools.com/js/js_if_else.asp">if</a>, свойства <a target="_blank" href="https://www.w3schools.com/jsref/jsref_length_string.asp">string.length</a> и оператора <a target="_blank" href="https://www.freecodecamp.org/news the-python-modulo-operator-what-does-the-symbol-mean-in-python-solved/">% (остаток от деления)</a>. Если длина текста не делится на 2, добавьте подчеркивание:
+        </p>
+        <pre class="brush: javascript">
+if (text.length % 2)
+    text += "_";
+// or
+text += '_' * (text.length % 2);
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        ОК, это только начало. Что делать дальше?
+    </div>
+    <div class="answer">
+       <p>
+            Теперь вы должны объявить переменную <b class="code">res</b>, с присвоением значения пустого массива, которую вы вернете в конце. Сделайте это объявление с подсказками типа или без них:
+       </p> 
+        <pre class="brush: javascript">
+let res: string[] = [];
+// or
+let res = [];
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я проделал все эти подготовительные работы, но не понимаю, как выполнять основную работу.
+    </div>
+    <div class="answer">
+        <p>
+            Используйте методы <a target="_blank" href="https://www.w3schools.com/jsref/jsref_push.asp">array.push()</a> и <a target="_blank" href="https://www.w3schools.com/jsref/jsref_slice_array.asp">array.slice()</a>, чтобы добавить первые два символа текста в <b class="code">res</b> и обновления текста без этих двух символов:
+        </p>
+        <pre class="brush: javascript">
+if (text.length % 2)
+text += "_";
+        
+let res: string[] = [];
+// command we add later
+    res.push(text.slice(0, 2));
+    text = text.slice(2);       
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я понимаю, но это только один шаг. Как выполнить эти операции со всем текстом?
+    </div>
+    <div class="answer">
+        <p>
+            Поскольку с каждым шагом вы сокращаете свой текст, делайте это до тех пор, пока текст не станет пустым с помощью цикла <a target="_blank" href="https://www.w3schools.com/js/js_loop_while.asp">while</a>:
+        </p>
+        <pre class="brush: javascript">
+if (text.length % 2)
+text += "_";
+        
+let res: string[] = [];
+while (text) {
+    res.push(text.slice(0, 2));
+    text = text.slice(2);
+}  
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        ОК. Как будет выглядить мое окончательное решение?
+    </div>
+    <div class="answer">
+        <p>
+            Вот почти и все. Просто добавьте функциональный оператор и верните <b class="code">res</b>:
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function splitPairs(text: string): string[] {
+
+    if (text.length % 2)
+        text += "_";
+    
+    let res: string[] = [];
+    while (text) {
+        res.push(text.slice(0, 2));
+        text = text.slice(2);
+    }             
+    return res;
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Покажите мне больше решений!<br />
+        'Потому что я хочу быть настоящим 🥇 героем Javascript!
+    </div>
+    <div class="answer">
+        <p>Конечно, забирай!</p>
+        <p>
+            Пройдись по тексту, беря каждый раз по два следующих символа.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function splitPairs(text: string): string[] {
+    
+    let result: string[] = [];
+    for(let i: number = 0; i < text.length; i += 2){
+        result.push((text + '_').slice(i, i + 2));
+    }
+    return result;
+}        
+        </pre>
+        </div>
+        <p>
+            Используй регулярное выражение, чтобы найти все двухсимвольные непересекающиеся подстроки.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+var splitPairs = t => (t + "_").match(/../g) || []
+        </pre>
+        </div>
+		<p><b>Нажмите "Best solutions" в меню миссии и вы увидите множество других интересных решений!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+	<div class="question">
+		Спасибо! Теперь я знаю и понимаю больше! Все работает отлично!
+	</div>
+	<div class="answer">
+		👍 Рад это слышать!
+	</div>
+</div>
+</body>

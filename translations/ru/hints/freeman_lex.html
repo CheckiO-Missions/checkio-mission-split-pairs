@@ -1,0 +1,158 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Я понятия не имею, как приступить к решению этой задачи.
+    </div>
+    <div class="answer">
+        <p>💡 Идея в том, чтобы использовать срезы. Возьмите из текста первые два символа, 
+            обрежьте их и повторите.</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        С какого инструмента мне следует начать?
+    </div>
+    <div class="answer">
+        <p>
+            Ваш первый шаг - проверить, содержит ли текст четное количество символов. Сделайте это с помощью оператора <a target="_blank" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if</a>, функции <a target="_blank" href="https://docs.python.org/3/library/functions.html#len">str.len()</a> и оператора <a target="_blank" href="https://www.freecodecamp.org/news the-python-modulo-operator-what-does-the-symbol-mean-in-python-solved/">% (остаток от деления)</a>. Если длина текста не делится на 2, добавьте подчеркивание:
+        </p>
+        <pre class="brush: python">
+if len(text) % 2:
+    text += '_'   
+        </pre>
+        <p>Это выражение может быть написано другими способами, которые могут быть менее ясными:</p>
+        <pre class="brush: python">
+text += '_' * (len(text) % 2) # умножение
+# или
+text += ('', '_')[len(text) % 2] # индексация
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        ОК, это только начало. Что делать дальше?
+    </div>
+    <div class="answer">
+       <p>
+            Теперь вы должны объявить переменную <b class="code">result</b>, которую вы вернете в конце. Тип должен быть одним из итерируемых, поэтому пусть это будет list. Сделайте его объявление с подсказками типа или без них:
+       </p> 
+        <pre class="brush: python">
+result: list[str] = []     
+# or
+result: list = []
+# or just
+result = []
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я проделал все эти подготовительные работы, но не понимаю как выполнить основную работу.
+    </div>
+    <div class="answer">
+        <p>
+            Используйте метод <a target="_blank" href="https://www.w3schools.com/python/python_lists_add.asp">list.append()</a> и <a target="_blank" href="https://python-reference.readthedocs.io/en/latest/docs/brackets/slicing.html">срезы</a> для добавления первых двух символов текста в <b class="code">result</b> и обновления текста без этих двух символов:
+        </p>
+        <pre class="brush: python">
+if len(text) % 2:
+    text += '_'
+    
+result: list = []
+# command we add later
+    result.append(text[:2])
+    text = text[2:]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я понимаю, но это только один шаг. Как выполнить эти операции со всем текстом?
+    </div>
+    <div class="answer">
+        <p>
+            Поскольку с каждым шагом вы сокращаете свой текст, делайте это до тех пор, пока текст не станет пустым с помощью цикла <a target="_blank" href="https://www.w3schools.com/python/python_while_loops.asp">while</a>:
+        </p>
+        <pre class="brush: python">
+if len(text) % 2:
+    text += '_'
+    
+result: list = []
+while text:
+    result.append(text[:2])
+    text = text[2:]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        ОК. Как будет выглядеть мое окончательное решение?
+    </div>
+    <div class="answer">
+        <p>
+            Это почти все. Просто добавьте выражение в функцию, верните <b class="code">result</b> и импортируйте <b class="code">Iterable</b> из модуля <b class="code">collections.abc</b> для правильной работы typehints:
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+
+
+def split_pairs(text: str) -> Iterable[str]:
+
+    if len(text) % 2:
+        text += '_'
+        
+    result: list = []
+    while text:
+        result.append(text[:2])
+        text = text[2:]
+    
+    return result
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Покажите мне больше решений!<br />
+        'Потому что я хочу стать настоящим 🥇 Ниндзей Python!
+    </div>
+    <div class="answer">
+        <p>Конечно, хватай его!</p>
+        <p>
+            Использование zip (с учетом значений по каждому индексу) для списков с четными и нечетными символами вместе для понимания списка. Его использование заканчивается более короткой последовательностью.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+split_pairs = lambda a: [i + k for i, k in zip(a[::2], a[1::2] + '_')]
+        </pre>
+        </div>
+        <p>
+            Используя один диапазон и делая срезы. Второй индекс не учитывается, поэтому <b class="code">i + 2</b>.
+            Using one range and taking slices. Second index is not included, so <b class="code">i + 2</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+
+
+def split_pairs(text: str) -> Iterable[str]:
+
+    text += '_' if len(text) % 2 else ''
+
+    return [text[i:i + 2] for i in range(0, len(text), 2)]        
+        </pre>
+        </div>
+		<p><b>
+            Нажмите "Best solutions" в меню миссии и вы увидите множество других интересных решений!
+        </b></p>
+    </div>
+</div>
+<div class="question-answer">
+	<div class="question">
+		Спасибо! Теперь я знаю и понимаю больше! Все работает отлично!
+	</div>
+	<div class="answer">
+		👍 Рад это слышать!
+	</div>
+</div>
+</body>
